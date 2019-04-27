@@ -4,7 +4,6 @@ __pycache__/
 *$py.class
 
 # Configuration files
-config.py
 instance/
 
 # C extensions
