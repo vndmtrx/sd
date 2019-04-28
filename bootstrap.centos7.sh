@@ -15,5 +15,6 @@ pip install --upgrade pip
 pip install wheel
 
 pip install -r requirements.txt
-#pip install Flask Flask-Login Flask-SQLAlchemy Flask-WTF psycopg2
+#pip install Flask Flask-Login Flask-WTF Flask-SQLAlchemy Flask-Migrate psycopg2
+
 deactivate

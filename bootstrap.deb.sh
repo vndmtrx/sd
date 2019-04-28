@@ -17,4 +17,6 @@ pip install wheel
 sudo apt install build-essential python3-dev libsasl2-dev libldap2-dev libssl-dev libpq-dev
 
 pip install -r requirements.txt
+#pip install Flask Flask-Login Flask-WTF Flask-SQLAlchemy Flask-Migrate psycopg2
+
 deactivate
