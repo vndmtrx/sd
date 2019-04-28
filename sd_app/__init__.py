@@ -14,7 +14,8 @@ def create_app(config=None):
     app.register_blueprint(main, url_prefix='/')
     app.register_blueprint(usuarios, url_prefix='/usuarios')
     
-    from sd_app.compartilhado import sqlalchemy as banco
+    from sd_app.compartilhado import sqlalchemy as banco, migrate
     banco.init_app(app)
+    migrate.init_app(app, banco)
     
     return app
