@@ -9,6 +9,6 @@ from . import main
 def get_main():
     return render_template('main.html')
 
-@main.route('teste')
+@main.route('/teste')
 def get_teste():
     return render_template('teste.html')
