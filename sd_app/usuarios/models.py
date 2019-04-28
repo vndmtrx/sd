@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from .compartilhado import sqlalchemy as db
+from sd_app.compartilhado import sqlalchemy as banco
 
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(20), unique=True, nullable=False)
-    name = db.Column(db.String(80), nullable=False)
-    email = db.Column(db.String(50), unique=True, nullable=False)
+class Usuario(banco.Model):
+    __tablename__ = 'usuarios'
+    id = banco.Column(banco.Integer, primary_key=True)
+    login = banco.Column(banco.String(20), unique=True, nullable=False)
+    nome = banco.Column(banco.String(80), nullable=False)
+    email = banco.Column(banco.String(50), unique=True, nullable=False)
     
     def __repr__(self):
-        return '<User "{0}">'.format(self.username)
+        return '<Usuario {0}>'.format(self.usuario)

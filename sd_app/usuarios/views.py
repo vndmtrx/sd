@@ -3,8 +3,10 @@
 
 from flask import render_template
 
-from . import blueprint as usuarios
+from sd_app.usuarios import blueprint as usuarios
+from sd_app.usuarios.models import Usuario
 
 @usuarios.route('/')
 def get_usuarios():
-    return render_template('usuarios/lista.html')
+    usuarios = Usuario.query.all()
+    return render_template('usuarios/lista.html', usuarios=usuarios)

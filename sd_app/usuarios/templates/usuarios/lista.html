@@ -1,8 +1,17 @@
-<html>
-    <head>
-        <title>Hello</title>
-    </head>
-    <body>
-      <h1>Hello</h1>
-    </body>
-</html>
+{% extends "raiz.html" %}
+{% block pagetitle %}Lista de Usuários{% endblock %}
+{% block title %}Lista de Usuários{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col-lg-12 text-center">
+    <h1 class="mt-5">Lista de Usuários</h1>
+    <ul class="list-unstyled">
+    {% for usuario in usuarios %}
+      <li>{{usuario.nome}} ({{usuario.login}})</li>
+    {% else %}
+      <li><em>Nenhum usuário encontrado</em></li>
+    {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}
