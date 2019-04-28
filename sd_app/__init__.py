@@ -3,21 +3,19 @@
 
 from flask import Flask
 
+from .compartilhado import banco
+
 def create_app(config=None):
     app = Flask(__name__)
     
     app.config.from_pyfile(config)
     
     from .main import main
-    from .admin import admin
-    from .users import users
+    from .usuarios import blueprint as usuarios
     
     app.register_blueprint(main, url_prefix='/')
-    app.register_blueprint(admin, url_prefix='/admin')
-    app.register_blueprint(users, url_prefix='/users')
+    app.register_blueprint(usuarios, url_prefix='/usuarios')
     
-    from .users.models import db as users_db
-    
-    users_db.init_app(app)
+    banco.init_app(app)
     
     return app

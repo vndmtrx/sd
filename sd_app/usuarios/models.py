@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+from .compartilhado import sqlalchemy as db
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
