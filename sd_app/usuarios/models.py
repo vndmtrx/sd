@@ -11,4 +11,4 @@ class Usuario(banco.Model):
     nome = banco.Column(banco.String(80), nullable=False)
     
     def __repr__(self):
-        return '<Usuario {0}>'.format(self.usuario)
+        return '<Usuario {0}>'.format(self.login)

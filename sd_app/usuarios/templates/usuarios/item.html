@@ -4,13 +4,15 @@
 {% block content %}
 <div class="row">
   <div class="col-lg-12 text-center">
-    <h1 class="mt-5">Lista de Usuários</h1>
+    <h1 class="mt-5">Usuário</h1>
     <ul class="list-unstyled">
-    {% for usuario in usuarios %}
-      <li>{{usuario.nome}} (<a href="{{url_for('.get_usuario', login=usuario.login)}}">{{usuario.login}}</a>)</li>
+    {% if usuario %}
+      <li>{{usuario.nome}}</li>
+      <li>{{usuario.login}}</li>
+      <li>{{usuario.email}}</li>
     {% else %}
       <li><em>Nenhum usuário encontrado</em></li>
-    {% endfor %}
+    {% endif %}
     </ul>
   </div>
 </div>
