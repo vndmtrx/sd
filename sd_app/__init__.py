@@ -8,8 +8,8 @@ def create_app(config=None):
     
     app.config.from_pyfile(config)
     
-    from sd_app.main import main
-    from sd_app.usuarios import blueprint as usuarios
+    from sd_app.blueprints.main import blueprint as main
+    from sd_app.blueprints.usuarios import blueprint as usuarios
     
     app.register_blueprint(main, url_prefix='/')
     app.register_blueprint(usuarios, url_prefix='/usuarios')

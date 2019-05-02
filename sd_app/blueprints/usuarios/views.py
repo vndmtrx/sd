@@ -4,9 +4,10 @@
 from flask import render_template, request, flash, redirect, url_for
 
 from sd_app.compartilhado import sqlalchemy as banco
-from sd_app.usuarios import blueprint as usuarios
-from sd_app.usuarios.models import Usuario
-from sd_app.usuarios.forms import RegistroUsuarioForm
+
+from . import blueprint as usuarios
+from .models import Usuario
+from .forms import RegistroUsuarioForm
 
 @usuarios.route('/')
 def get_usuarios():
