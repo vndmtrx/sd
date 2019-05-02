@@ -27,7 +27,7 @@ def adicionar_usuario():
         form.populate_obj(usr)
         banco.session.add(usr)
         banco.session.commit()
-        flash('Obrigado pelo registro')
+        flash('Obrigado pelo registro', 'success')
         return redirect(url_for('.get_usuario', login=usr.login))
     return render_template('usuarios/registro.html', form=form)
 
