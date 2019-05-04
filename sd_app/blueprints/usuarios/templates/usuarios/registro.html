@@ -1,4 +1,5 @@
 {% extends "raiz.html" %}
+{% from "macros/_item_formulario.html" import item_formulario with context %}
 {% block pagetitle %}Lista de Usuários{% endblock %}
 {% block title %}Lista de Usuários{% endblock %}
 {% block content %}
@@ -7,35 +8,9 @@
     <h1 class="mt-5">Lista de Usuários</h1>
     <form action="{{ form.action }}" method="post" novalidate>
       {{ form.csrf_token }}
-      <div class="form-group">
-        {{ form.login.label }}
-        {% if not form.login.errors %}
-          {{ form.login(class_='form-control') }}
-        {% else %}
-          {{ form.login(class_='form-control is-invalid') }}
-          {% for error in form.login.errors %}
-          <div class="invalid-feedback">{{ error }}</div>
-          {% endfor %}
-        {% endif %}
-      </div>
-      <div class="form-group">
-        {{ form.nome.label }}
-        {{ form.nome(class_='form-control') }}
-        {% if form.nome.errors %}
-          {% for error in form.nome.errors %}
-          <div class="alert alert-danger" role="alert">{{ error }}</div>
-          {% endfor %}
-        {% endif %}
-      </div>
-      <div class="form-group">
-        {{ form.email.label }}
-        {{ form.email(class_='form-control') }}
-        {% if form.email.errors %}
-          {% for error in form.email.errors %}
-          <div class="alert alert-danger" role="alert">{{ error }}</div>
-          {% endfor %}
-        {% endif %}
-      </div>
+      {{ item_formulario(form.login) }}
+      {{ item_formulario(form.nome) }}
+      {{ item_formulario(form.email) }}
       {{ form.enviar }}
     </form>
   </div>
