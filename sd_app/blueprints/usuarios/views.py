@@ -27,7 +27,7 @@ def adicionar_usuario():
         form.populate_obj(usr)
         banco.session.add(usr)
         banco.session.commit()
-        flash('Obrigado pelo registro', 'success')
+        flash('Cadastrado com sucesso', 'success')
         return redirect(url_for('.get_usuario', login=usr.login))
     return render_template('usuarios/registro.html', form=form)
 
@@ -39,6 +39,7 @@ def editar_usuario(login):
         if form.validate_on_submit():
             form.populate_obj(usr)
             banco.session.commit()
+            flash('Alterado com sucesso', 'success')
             return redirect(url_for('.get_usuario', login=usr.login))
         return render_template('usuarios/registro.html', form=form)
     else:

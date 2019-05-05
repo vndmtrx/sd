@@ -7,7 +7,9 @@ from . import blueprint as main
 
 @main.route('/')
 def get_main():
-    flash('Mensagem 1', 'success')
+    flash('Mensagem Primary', 'primary')
+    flash('Mensagem Secondary', 'secondary')
+    flash('Mensagem success', 'success')
     flash('Mensagem Info', 'info')
     flash('Mensagem Warning', 'warning')
     flash('Mensagem Error', 'danger')

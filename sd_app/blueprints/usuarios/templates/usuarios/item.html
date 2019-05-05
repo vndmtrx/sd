@@ -1,10 +1,9 @@
 {% extends "raiz.html" %}
-{% block pagetitle %}Lista de Usuários{% endblock %}
-{% block title %}Lista de Usuários{% endblock %}
+{% block titulo %}Lista de Usuários{% endblock %}
 {% block content %}
 <div class="row">
   <div class="col-lg-12 text-center">
-    <h1 class="mt-5">Usuário</h1>
+    <h1>Usuário</h1>
     <ul class="list-unstyled">
     {% if usuario %}
       <li>{{usuario.nome}}</li>
