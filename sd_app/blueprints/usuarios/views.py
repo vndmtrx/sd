@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from flask import render_template, request, flash, redirect, url_for
+from flask import render_template, request, flash, redirect, url_for, abort
 
 from sd_app.compartilhado import sqlalchemy as banco
 
@@ -24,6 +24,7 @@ def adicionar_usuario():
     form = RegistroUsuarioForm(request.form)
     if form.validate_on_submit():
         usr = Usuario()
+        del form.id
         form.populate_obj(usr)
         banco.session.add(usr)
         banco.session.commit()
@@ -37,6 +38,8 @@ def editar_usuario(login):
     if usr is not None:
         form = RegistroUsuarioForm(request.form, obj=usr)
         if form.validate_on_submit():
+            if form.id.data != str(usr.id):
+                abort(403)
             form.populate_obj(usr)
             banco.session.commit()
             flash('Alterado com sucesso', 'success')
