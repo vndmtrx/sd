@@ -2,16 +2,15 @@
 {% from "macros/_item_formulario.html" import item_formulario with context %}
 {% block titulo %}Lista de Usuários{% endblock %}
 {% block content %}
-<div class="row">
-  <div class="col-lg-12 text-center">
-    <h1>Lista de Usuários</h1>
-    <form action="{{ form.action }}" method="post" novalidate>
-      {{ form.csrf_token }}
-      {{ item_formulario(form.login) }}
-      {{ item_formulario(form.nome) }}
-      {{ item_formulario(form.email) }}
-      {{ form.enviar }}
-    </form>
-  </div>
+<div class="col-lg-12">
+  <h1>Lista de Usuários</h1>
+  <form action="{{ form.action }}" method="post" novalidate>
+    {{ form.csrf_token }}
+    {{ form.id }}
+    {{ item_formulario(form.login) }}
+    {{ item_formulario(form.nome) }}
+    {{ item_formulario(form.email) }}
+    {{ form.enviar }}
+  </form>
 </div>
 {% endblock %}

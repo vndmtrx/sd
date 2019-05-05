@@ -1,18 +1,16 @@
 {% extends "raiz.html" %}
 {% block titulo %}Lista de Usuários{% endblock %}
 {% block content %}
-<div class="row">
-  <div class="col-lg-12 text-center">
-    <h1>Usuário</h1>
-    <ul class="list-unstyled">
-    {% if usuario %}
-      <li>{{usuario.nome}}</li>
-      <li>{{usuario.login}}</li>
-      <li>{{usuario.email}}</li>
-    {% else %}
-      <li><em>Nenhum usuário encontrado</em></li>
-    {% endif %}
-    </ul>
-  </div>
+<div class="col-lg-12">
+  <h1>Usuário <a href="{{url_for('.editar_usuario', login=usuario.login)}}"><i class="far fa-edit"></i></a></h1>
+  <ul class="list-unstyled">
+  {% if usuario %}
+    <li>{{usuario.nome}}</li>
+    <li>{{usuario.login}}</li>
+    <li>{{usuario.email}}</li>
+  {% else %}
+    <li><em>Nenhum usuário encontrado</em></li>
+  {% endif %}
+  </ul>
 </div>
 {% endblock %}
