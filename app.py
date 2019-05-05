@@ -16,7 +16,7 @@ app = create_app(config=cfg)
 @app.shell_context_processor
 def cria_contexto_shell():
     from sd_app.compartilhado import sqlalchemy as banco
-    from sd_app.usuarios.models import Usuario
+    from sd_app.blueprints.usuarios.models import Usuario
     
     return {
         'banco': banco,
