@@ -23,9 +23,12 @@ def get_usuario(login):
 def adicionar_usuario():
     form = RegistroUsuarioForm(request.form)
     if form.validate_on_submit():
-        usr = Usuario()
-        del form.id
-        form.populate_obj(usr)
+        usr = Usuario(
+            login=form.login.data,
+            email=form.email.data,
+            nome=form.nome.data
+        )
+        usr.senha = form.senha.data
         banco.session.add(usr)
         banco.session.commit()
         flash('Cadastrado com sucesso', 'success')
@@ -40,7 +43,11 @@ def editar_usuario(login):
         if form.validate_on_submit():
             if form.id.data != str(usr.id):
                 abort(403)
-            form.populate_obj(usr)
+            usr.login = form.login.data
+            usr.email = form.email.data
+            usr.nome = form.nome.data
+            if form.senha.data != usr.senha:
+                usr.senha = form.senha.data
             banco.session.commit()
             flash('Alterado com sucesso', 'success')
             return redirect(url_for('.get_usuario', login=usr.login))
