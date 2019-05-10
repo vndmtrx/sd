@@ -28,6 +28,7 @@ banco: /tmp/teste.db
 	flask db upgrade
 
 migrations:
+	test ! -f /tmp/teste.db || rm -r /tmp/teste.db
 	source venv/bin/activate; \
 	flask db init; \
 	flask db migrate; \
